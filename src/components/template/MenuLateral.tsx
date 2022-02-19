@@ -5,7 +5,10 @@ import MenuItem from "./MenuItem";
 
 export default function MenuLateral() {
     return(
-        <aside className="flex flex-col">
+        <aside className={`flex flex-col
+        bg-gray-200 text-gray-700
+        dark:bg-gray-900 dark:text-gray-200
+        `}>
             <div className={`
             flex flex-col items-center justify-center
             bg-gradient-to-r from-orange-300 to-orange-500
@@ -22,7 +25,7 @@ export default function MenuLateral() {
                 <MenuItem texto="Sair" icone={IconeSair}
                 onClick={() => console.log('Saiu')}
                 className={`
-                text-red-600
+                text-red-600 dark:text-red-400 dark:hover:bg-gray-800
                 hover:bg-orange-400 hover:text-white
                 `}
                 
