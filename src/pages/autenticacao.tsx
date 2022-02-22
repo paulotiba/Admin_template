@@ -1,10 +1,22 @@
 import { useState } from "react";
 import AuthInput from "../components/auth/AuthInput";
+import Image from "next/image";
+import { IconeAtencao } from "../components/icons";
+import useAuth from "../data/hook/useAuth";
 
 export default function Autenticacao() {
+
+  const { usuario, loginGoogle } = useAuth()
+  
+  const [erro, setErro] = useState(null);
   const [modo, setModo] = useState<"login" | "cadastro">("login");
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
+
+  function exibirErro(msg, tempoEmSegundos = 5) {
+    setErro(msg);
+    setTimeout(() => setErro(null), tempoEmSegundos * 1000);
+  }
 
   function submeter() {
     if (modo === "login") {
@@ -18,7 +30,7 @@ export default function Autenticacao() {
     <div className="flex items-center justify-center h-screen">
       <div className="hidden md:w-1/2 md:block ">
         <img
-          src="https://source.unsplash.com/random"
+          src="./netzdu01cópia.PNG"
           alt="imagem da tela de autenticação"
           className="object-cover w-full h-screen"
         />
@@ -34,6 +46,22 @@ export default function Autenticacao() {
             ? "Entre com sua Conta"
             : "Cadastre-se na Plataforma"}
         </h1>
+
+        {erro ? (
+          <div
+            className={`
+        flex items-center
+        bg-red-400 text-white py-3 px-5
+        my-2 border border-red-800 rounded-lg
+        `}
+          >
+            {IconeAtencao()}
+            <span className="ml-3">{erro}</span>
+          </div>
+        ) : (
+          false
+        )}
+
         <AuthInput
           label="Email"
           tipo="email"
@@ -59,7 +87,7 @@ export default function Autenticacao() {
         </button>
         <hr className="my-6 border-gray-300" />
         <button
-          onClick={submeter}
+          onClick={loginGoogle}
           className={`
             w-full bg-red-500 hover:bg-red-400 text-white
             rounded-lg px-4 py-3 
