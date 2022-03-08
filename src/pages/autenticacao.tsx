@@ -83,7 +83,7 @@ export default function Autenticacao() {
             rounded-lg px-4 py-3 mt-6
             `}
         >
-          {modo === "login" ? "Entar" : "Cadastar"}
+          {modo === "login" ? "Entrar" : "Cadastar"}
         </button>
         <hr className="my-6 border-gray-300" />
         <button
