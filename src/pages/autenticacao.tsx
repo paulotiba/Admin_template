@@ -28,12 +28,12 @@ export default function Autenticacao() {
 
   return (
     <div className="flex items-center justify-center h-screen">
-      <div className="hidden md:w-1/2 md:block ">
-        <img
+      <div className="hidden md:w-1/2 md:block">
+        {/* <img
           src="./netzdu01cópia.PNG"
           alt="imagem da tela de autenticação"
           className="object-cover w-full h-screen"
-        />
+        /> */}
       </div>
 
       <div className="w-full m-10 md:w-1/2 ">
