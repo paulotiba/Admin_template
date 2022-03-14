@@ -1,3 +1,4 @@
+import Head from "next/head"
 import Image from "next/image"
 import Router from "next/router"
 import loading from '../../../public/img/loading.gif'
@@ -11,6 +12,16 @@ export default function ForcarAutenticacao(props) {
     function renderizarConteudo() {
         return (
             <>
+            <Head>
+                <script 
+                dangerouslySetInnerHTML={{
+                    __html: `
+                    if(!document.cookie?.includes("admin-template-netz-auth"))
+                    window.location.href = "/autenticacao"
+                    `
+                }}
+                />
+            </Head>
 
             {props.children}
             
